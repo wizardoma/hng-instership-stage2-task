@@ -29,78 +29,85 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text("HNG Internship"),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                child: Text("Select the text formatting style of your input"),
-              ),
-              SizedBox(height: 15,),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                GestureDetector(
-                  onTap: () => addStyles("bold"),
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: isSelected("bold") ? Colors.black87 : Colors.transparent,),
-                    ),
-                    child: Text("Bold"),
-                  ),
+        body: Container(
+          decoration: BoxDecoration(
+//            image: DecorationImage(
+////              image: AssetImage("assets/hng.png")
+//            )
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  child: Text("Select the text formatting style of your input"),
                 ),
+                SizedBox(height: 15,),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
                   GestureDetector(
-                    onTap: () => addStyles("underline"),
+                    onTap: () => addStyles("bold"),
                     child: Container(
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        border: Border.all(color: isSelected("underline") ? Colors.black87 : Colors.transparent,),
+                        border: Border.all(color: isSelected("bold") ? Colors.black87 : Colors.transparent,),
                       ),
-                      child: Text("Underline"),
+                      child: Text("Bold"),
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () => addStyles("italic"),
-                    child: Container(
-
-                      padding: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: isSelected("italic") ? Colors.black87 : Colors.transparent,),
-
+                    GestureDetector(
+                      onTap: () => addStyles("underline"),
+                      child: Container(
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: isSelected("underline") ? Colors.black87 : Colors.transparent,),
+                        ),
+                        child: Text("Underline"),
                       ),
-                      child: Text("Italic"),
                     ),
-                  ),
-              ],),
-              SizedBox(height: 20,),
-              TextField(
-                controller: inputController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black87)
-                  ),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black87)
+                    GestureDetector(
+                      onTap: () => addStyles("italic"),
+                      child: Container(
+
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: isSelected("italic") ? Colors.black87 : Colors.transparent,),
+
+                        ),
+                        child: Text("Italic"),
+                      ),
                     ),
+                ],),
+                SizedBox(height: 20,),
+                TextField(
+                  controller: inputController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black87)
+                    ),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black87)
+                      ),
+                  ),
                 ),
-              ),
-              SizedBox(height: 10,),
-              ElevatedButton(onPressed: displayText, child: Text("Display")),
-              SizedBox(height: 10),
-              Text(formattedText, style: TextStyle(
-                fontSize: 25,
-                fontStyle: isSelected("italic") ? FontStyle.italic : FontStyle.normal,
-                fontWeight: isSelected("bold") ? FontWeight.bold : FontWeight.normal,
-                decoration: isSelected("underline") ? TextDecoration.underline : TextDecoration.none
-              ),
+                SizedBox(height: 10,),
+                ElevatedButton(onPressed: displayText, child: Text("Display")),
+                SizedBox(height: 10),
+                Text(formattedText, style: TextStyle(
+                  fontSize: 25,
+                  fontStyle: isSelected("italic") ? FontStyle.italic : FontStyle.normal,
+                  fontWeight: isSelected("bold") ? FontWeight.bold : FontWeight.normal,
+                  decoration: isSelected("underline") ? TextDecoration.underline : TextDecoration.none
+                ),
 
-              )
+                )
 
 
-            ],
+              ],
+            ),
           ),
         ),
       ),
